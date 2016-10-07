@@ -1,3 +1,3 @@
 class ITextToSpeech:
-  def Output(text: str): raise NotImplementedError
+  def output(text: str): raise NotImplementedError
     

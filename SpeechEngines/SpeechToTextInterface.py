@@ -1,2 +1,2 @@
 class ISpeechToText:
-  def GetInput(starter: str = None): raise NotImplementedError    
+  def getInput(starter: str = None): raise NotImplementedError    
