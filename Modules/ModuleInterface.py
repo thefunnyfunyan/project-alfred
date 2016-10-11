@@ -8,7 +8,7 @@ class IModule:
         self._stt = stt
         self._tts = tss
 
-    def execute(self, wordList: str[]): raise NotImplementedError
+    def execute(self, wordList: [str]): raise NotImplementedError
 
 if __name__ == "__main__":
-    return
+    None
