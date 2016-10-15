@@ -1,7 +1,6 @@
 from SpeechEngines.SpeechToTextInterface import ISpeechToText
 from SpeechEngines.TextToSpeechInterface import ITextToSpeech
 from Modules.ModuleInterface import IModule
-# need to deal with the modules some how. module list or something
 
 class soul:
     def __init__(self, stt: ISpeechToText, tts: ITextToSpeech, moduleList: [IModule] ):
