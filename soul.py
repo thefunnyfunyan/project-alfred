@@ -6,7 +6,7 @@ from Modules.ModuleInterface import IModule
 class soul:
     def __init__(self, stt: ISpeechToText, tts: ITextToSpeech, moduleList: [IModule] ):
         self._stt = stt
-        self._tts= tts
+        self._tts = tts
         self._moduleList = moduleList
 
     def main(self):
