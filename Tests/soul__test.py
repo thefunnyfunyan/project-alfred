@@ -20,15 +20,16 @@ class SoulTest(unittest.TestCase):
         self.assertEqual(self.ttsEngine.outputText, "end of main loop")
         self.assertEqual(self.moduleSpy.executed, True)
 
-    #def test_ShouldChooseSecondMockModule(self):
+    def test_ShouldChooseSecondMockModule(self):
 
 
 
-class inputEngine():
+
+class inputEngine(ISpeechToText):
     def listenForConversation(self, starter: str):
         return ""
 
-class outputEngine():
+class outputEngine(ITextToSpeech):
     outputText = ""
 
     def output(self, outputText: str):
