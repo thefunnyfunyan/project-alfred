@@ -15,7 +15,23 @@ class soul:
         self._tts.output("end of main loop")
 
     def getModuleToRun(self, wordList:[str]) ->  IModule:
-        return self._moduleList[0]
+        maxMatchNumber = 0
+        moduleToRunIndex = -1
+        index = 0
+        for module in self._moduleList:
+            tempMatchNumber = 0
+            tempKeyWords = module.keyWords
+
+            for keyWord in wordList:
+                for moduleKey in tempKeyWords:
+                    if(keyWord.upper() == moduleKey.upper()):
+                        tempMatchNumber += 1
+            
+            if(tempMatchNumber > maxMatchNumer):
+                maxMatchNumber = tempMatchNumber
+                moduleToRunIndex = index
+            index +=1
+
 
 if __name__ == "__main__":
     main()

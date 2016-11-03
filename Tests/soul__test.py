@@ -21,7 +21,7 @@ class SoulTest(unittest.TestCase):
         self.assertEqual(self.moduleSpy.executed, True)
 
     def test_ShouldChooseSecondMockModule(self):
-
+        self.assertTrue(True)
 
 
 
@@ -35,7 +35,7 @@ class outputEngine(ITextToSpeech):
     def output(self, outputText: str):
         self.outputText = outputText
 
-class moduleMock():
+class moduleMock(IModule):
     executed = False
 
     def execute(self, wordList:[str]):
