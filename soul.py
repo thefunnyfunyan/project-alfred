@@ -15,22 +15,24 @@ class soul:
         self._tts.output("end of main loop")
 
     def getModuleToRun(self, wordList:[str]) ->  IModule:
-        maxMatchNumber = 0
-        moduleToRunIndex = -1
-        index = 0
-        for module in self._moduleList:
-            tempMatchNumber = 0
-            tempKeyWords = module.keyWords
+        maxMatchNumber, moduleToRunIndex = 0, 0
 
-            for keyWord in wordList:
-                for moduleKey in tempKeyWords:
-                    if(keyWord.upper() == moduleKey.upper()):
-                        tempMatchNumber += 1
+        for index, module in enumerate(self._moduleList):
+            tempMatchNumber = self.getMatchCount(wordList, module.keyWords)
             
-            if(tempMatchNumber > maxMatchNumer):
-                maxMatchNumber = tempMatchNumber
-                moduleToRunIndex = index
-            index +=1
+            if(tempMatchNumber > maxMatchNumber):
+                maxMatchNumber, moduleToRunIndex = tempMatchNumber, index
+        
+        return self._moduleList[moduleToRunIndex]
+    
+    def getMatchCount(self, wordList: [str], moduleKeyWords: [str]) -> int:
+        matchCount = 0
+
+        for keyWord in wordList:
+            for moduleKeyWord in moduleKeyWords:
+                if(keyWord.upper() == moduleKeyWord.upper()):
+                    matchCount += 1
+        return matchCount        
 
 
 if __name__ == "__main__":
