@@ -1,2 +1,2 @@
 class IInputEngine(object):
-  def getInput(starter: str = None): raise NotImplementedError
+  def getInput(self, starter: str = None): raise NotImplementedError
