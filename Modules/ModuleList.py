@@ -1,13 +1,11 @@
-from Modules.TestModule import TestModule
-from Modules.ModuleInterface import IModule
-from SpeechEngines.TextToSpeechInterface import ITextToSpeech
-from SpeechEngines.SpeechToTextInterface import ISpeechToText
-
+from .TestModule import TestModule
+from .ModuleInterface import IModule
+from IOEngine.IOEngine import IOEngine
 
 class ModuleList:
-    def getModules(stt:ISpeechToText, tss:ITextToSpeech) -> [IModule]:
+    def getModules(ioEngine: IOEngine) -> [IModule]:
         modList = [
-            TestModule(stt, tss)
+            TestModule(ioEngine)
         ]
         return modList
 

@@ -1,18 +1,17 @@
-from SpeechEngines.SpeechToTextInterface import ISpeechToText
-from SpeechEngines.TextToSpeechInterface import ITextToSpeech
+from IOEngine.IOEngine import IOEngine
 from Modules.ModuleInterface import IModule
 
 class soul:
-    def __init__(self, stt: ISpeechToText, tts: ITextToSpeech, moduleList: [IModule] ):
-        self._stt = stt
-        self._tts = tts
+    def __init__(self, ioEngine: IOEngine, moduleList: [IModule] ):
+        assert isinstance(ioEngine, IOEngine)
+        self.ioEngine = ioEngine
         self._moduleList = moduleList
 
     def main(self):
-        wordList = self._stt.listenForConversation('Alfred')
+        wordList = self.ioEngine.getInput('Alfred')
         moduleToRun = self.getModuleToRun(wordList)
         moduleToRun.execute(wordList)
-        self._tts.output("end of main loop")
+        self.ioEngine.output("end of main loop")
 
     def getModuleToRun(self, wordList:[str]) ->  IModule:
         maxMatchNumber, moduleToRunIndex = 0, 0
