@@ -1,12 +1,27 @@
 import unittest
 from IOEngine.IOEngine import IOEngine
+from IOEngine.InputEngine.InputEngineInterface import IInputEngine
+from IOEngine.OutputEngine.OutputEngineInterface import IOutputEngine
 from soul import soul
 from Modules.ModuleInterface import IModule
 
 class SoulTest(unittest.TestCase):
     def setUp(self):
-        self.ioEngine = IOEngine(None, None)
+        self.inputMock = InputMock()
+        self.outputMock = OutputMock()
+        self.ioEngine = IOEngine(self.inputMock, self.outputMock)
         self.moduleSpy = moduleMock(self.ioEngine)
+    
+    def test_ShouldExecuteMockModule(self):
+        _soul = soul(self.ioEngine, [self.moduleSpy])
+        self.assertEqual(self.moduleSpy.executed, False)
+        self.assertEqual(self.inputMock.inputText, "")
+        self.assertEqual(self.outputMock.outputText, "")
+        _soul.main()
+        self.assertEqual(self.moduleSpy.executed, True)
+        self.assertEqual(self.inputMock.inputText, "Alfred")
+        self.assertEqual(self.outputMock.outputText, "end of main loop")
+        
     
     # def test_ShouldExecuteMockModuleOnce(self):
     #     testSoul = soul(self.ioEngine, [self.moduleSpy])
@@ -59,6 +74,18 @@ class moduleMock2(IModule):
     def execute(self, wordList:[str]):
         self.executed = True
 
+class InputMock(IInputEngine):
+    inputText = ""
+
+    def getInput(self, starter):
+        self.inputText = starter
+        return []
+
+class OutputMock(IOutputEngine):
+    outputText = ""
+
+    def output(self, outputText):
+        self.outputText = outputText
 
 if __name__ == "__main__":
     unittest.main()
