@@ -1,11 +1,7 @@
-from IOEngine.OutputEngine.OutputEngineInterface import IOutputEngine
-from IOEngine.InputEngine.InputEngineInterface import IInputEngine
-from IOEngine.IOEngine import IOEngine
+from .OutputEngine.OutputEngineInterface import IOutputEngine
+from .InputEngine.InputEngineInterface import IInputEngine
+from .IOEngine import IOEngine
 import unittest
-
-#from OutputEngine.OutputEngineInterface import IOutputEngine
-#from InputEngine.InputEngineInterface import IInputEngine
-#from IOEngine import IOEngine
 
 class StringInputEngineTest(unittest.TestCase):
   def test_NoStarterReturnInput(self):

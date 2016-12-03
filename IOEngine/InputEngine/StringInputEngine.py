@@ -1,4 +1,4 @@
-from IOEngine.InputEngine.InputEngineInterface import IInputEngine
+from .InputEngineInterface import IInputEngine
 
 class StringInputEngine(IInputEngine):
   def getInput(self, starter: str = None) -> [str]: 

@@ -1,4 +1,4 @@
-from IOEngine.OutputEngine.OutputEngineInterface import IOutputEngine
+from .OutputEngineInterface import IOutputEngine
 
 class StringOutputEngine(IOutputEngine):
   def output(self, outputString: str):
