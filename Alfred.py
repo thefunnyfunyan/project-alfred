@@ -1,6 +1,13 @@
+from IOEngine.IOEngine import IOEngine
+from IOEngine.InputEngine.StringInputEngine import StringInputEngine
 from IOEngine.OutputEngine.StringOutputEngine import StringOutputEngine
+from Modules.ModuleList import ModuleList
 
-soe = StringOutputEngine()
-soe.output("working")
+def main():
+  strIn = StringInputEngine()
+  strOut = StringOutputEngine()
+  strOut.output(strIn.getInput())
 
-#Main script for Project Alfred
+
+if __name__ == "__main__":
+  main()
