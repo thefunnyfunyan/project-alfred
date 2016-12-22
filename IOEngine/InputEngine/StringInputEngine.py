@@ -6,6 +6,6 @@ class StringInputEngine(IInputEngine):
       while(True):
         inputList = input().split(' ')
         for word in inputList:
-          if(word == starter):
+          if(word.upper() == starter.upper()):
             return inputList
     return input().split(' ')

@@ -8,9 +8,11 @@ class soul:
         self._moduleList = moduleList
 
     def main(self):
-        wordList = self.ioEngine.getInput('Alfred')
-        moduleToRun = self.getModuleToRun(wordList)
-        moduleToRun.execute(wordList)
+        self.giveIntro()
+        while(True):
+            wordList = self.ioEngine.getInput('Alfred')
+            moduleToRun = self.getModuleToRun(wordList)
+            moduleToRun.execute(wordList)
 
     def getModuleToRun(self, wordList:[str]) ->  IModule:
         maxMatchNumber, moduleToRunIndex = 0, 0
@@ -30,7 +32,13 @@ class soul:
             for moduleKeyWord in moduleKeyWords:
                 if(keyWord.upper() == moduleKeyWord.upper()):
                     matchCount += 1
-        return matchCount        
+        return matchCount
+
+    def giveIntro(self):
+        self.ioEngine.output('Hello, My name is Alfred.')
+        self.ioEngine.output('I am the beginnings of a personal assistant,')
+        self.ioEngine.output('I was developed slowly by Brandon Runyan.') 
+        self.ioEngine.output('If you need me, just start with "Alfred" and then your request.')       
 
 
 if __name__ == "__main__":
