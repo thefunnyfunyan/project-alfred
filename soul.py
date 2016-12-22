@@ -11,7 +11,6 @@ class soul:
         wordList = self.ioEngine.getInput('Alfred')
         moduleToRun = self.getModuleToRun(wordList)
         moduleToRun.execute(wordList)
-        self.ioEngine.output("end of main loop")
 
     def getModuleToRun(self, wordList:[str]) ->  IModule:
         maxMatchNumber, moduleToRunIndex = 0, 0
@@ -19,7 +18,7 @@ class soul:
         for index, module in enumerate(self._moduleList):
             tempMatchNumber = self.getMatchCount(wordList, module.keyWords)
             
-            if(tempMatchNumber > maxMatchNumber):
+            if(tempMatchNumber >= maxMatchNumber):
                 maxMatchNumber, moduleToRunIndex = tempMatchNumber, index
         
         return self._moduleList[moduleToRunIndex]
