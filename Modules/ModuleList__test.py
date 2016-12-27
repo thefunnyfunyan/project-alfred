@@ -4,13 +4,16 @@ from IOEngine.InputEngine.InputEngineInterface import IInputEngine
 from IOEngine.OutputEngine.OutputEngineInterface import IOutputEngine
 from Modules.ModuleList import ModuleList
 
+
 class ModuleListTest(unittest.TestCase):
-    def test_ShouldListWithOneModule(self):
-        modList = ModuleList.getModules(IOEngine(inputStub(), outputStub()))
-        self.assertEqual(len(modList), 1)
+  def test_ShouldListWithOneModule(self):
+    modList = ModuleList.getModules(IOEngine(inputStub(), outputStub()))
+    self.assertEqual(len(modList), 2)
+
 
 class inputStub(IInputEngine):
-    pass
+  pass
+
 
 class outputStub(IOutputEngine):
-    pass
+  pass
