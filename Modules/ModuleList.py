@@ -3,6 +3,7 @@ from .DefaultModule import DefaultModule
 from .ModuleInterface import IModule
 from IOEngine.IOEngine import IOEngine
 from .ExitModule import ExitModule
+from .JokeModule import JokeModule
 
 
 class ModuleList:
@@ -10,6 +11,7 @@ class ModuleList:
     modList = [
       ExitModule(ioEngine),
       TestModule(ioEngine),
+      JokeModule(ioEngine),
       DefaultModule(ioEngine)
     ]
     return modList

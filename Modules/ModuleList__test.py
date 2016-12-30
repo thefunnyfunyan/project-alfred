@@ -8,7 +8,7 @@ from Modules.ModuleList import ModuleList
 class ModuleListTest(unittest.TestCase):
   def test_ShouldListWithOneModule(self):
     modList = ModuleList.getModules(IOEngine(inputStub(), outputStub()))
-    self.assertEqual(len(modList), 3)
+    self.assertEqual(len(modList), 4)
 
 
 class inputStub(IInputEngine):
