@@ -6,14 +6,14 @@ from Modules.ModuleList import ModuleList
 
 
 class ModuleListTest(unittest.TestCase):
-  def test_ShouldListWithOneModule(self):
-    modList = ModuleList.getModules(IOEngine(inputStub(), outputStub()))
-    self.assertEqual(len(modList), 4)
+    def test_ShouldListWithOneModule(self):
+        modList = ModuleList.getModules(IOEngine(inputStub(), outputStub()))
+        self.assertEqual(len(modList), 5)
 
 
 class inputStub(IInputEngine):
-  pass
+    pass
 
 
 class outputStub(IOutputEngine):
-  pass
+    pass

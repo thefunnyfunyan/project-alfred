@@ -5,7 +5,7 @@ class IModule(object):
   _keyWords = []
 
   def __init__(self, ioEngine: IOEngine):
-    self.ioEngine = ioEngine
+    self.io_engine = ioEngine
 
   def execute(self, wordList: [str]) -> None: raise NotImplementedError
 

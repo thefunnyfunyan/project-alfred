@@ -61,7 +61,7 @@ class moduleMock(IModule):
 
   def execute(self, wordList: [str]):
     self.executed = True
-    self.ioEngine.output('ran module one')
+    self.io_engine.output('ran module one')
     return 'exit'
 
 
@@ -70,7 +70,7 @@ class moduleMock2(IModule):
   _keyWords = ['second']
 
   def execute(self, wordList: [str]):
-    self.ioEngine.output('ran module two')
+    self.io_engine.output('ran module two')
     self.executed = True
     return 'exit'
 

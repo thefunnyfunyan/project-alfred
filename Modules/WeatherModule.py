@@ -36,28 +36,28 @@ class WeatherModule(IModule):
         }[command_index]()
 
     def noCommand(self):
-        self.ioEngine.output('nothing supplied')
+        self.io_engine.output('nothing supplied')
 
     def getCurrentHourSummary(self, jsonData: str) -> None:
         try:
             currentData = jsonData['minutely']
-            self.ioEngine.output(currentData['summary'])
+            self.io_engine.output(currentData['summary'])
         except Exception as e:
             self.handleWeatherError()
 
     def getCurrentDaySummary(self, jsonData: str) -> None:
         try:
             currentData = jsonData['hourly']
-            self.ioEngine.output(currentData['summary'])
+            self.io_engine.output(currentData['summary'])
         except Exception as e:
             self.handleWeatherError()
 
     def getCurrentWeekSummary(self, jsonData: str) -> None:
         try:
             currentData = jsonData['daily']
-            self.ioEngine.output(currentData['summary'])
+            self.io_engine.output(currentData['summary'])
         except Exception as e:
             self.handleWeatherError()
 
     def handleWeatherError(self):
-        self.ioEngine.output('My apologies but there was a problem with the weather data. Please try again')
+        self.io_engine.output('My apologies but there was a problem with the weather data. Please try again')

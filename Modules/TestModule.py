@@ -6,7 +6,7 @@ class TestModule(IModule):
   _keyWords = ["test", "testing"]
 
   def execute(self, wordList: [str]):
-    self.ioEngine.output("executing test module")
+    self.io_engine.output("executing test module")
 
 
 if __name__ == "__main__":

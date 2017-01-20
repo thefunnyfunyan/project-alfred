@@ -1,6 +1,6 @@
 import unittest
 from IOEngine.IOEngine import IOEngine
-from .JokeModule import JokeModule, StoryJoke
+from .JokeModule import JokeModule, StoryJoke, JokeType
 
 
 class JokeModuleTest(unittest.TestCase):
@@ -14,15 +14,20 @@ class JokeModuleTest(unittest.TestCase):
     def test_ShouldGetStoryJokeType(self):
         testInput = [['story'], ['long']]
         for input in testInput:
-            self.assertEqual(self.jokeModule._getJokeTypeFromUserInput(input), 'story')
+            self.assertEqual(self.jokeModule._getJokeTypeFromUserInput(input), JokeType.story)
 
     def test_ShouldReturnStoryJoke(self):
-        joke = self.jokeModule._getJoke('story')
+        joke = self.jokeModule._getJoke(JokeType.story)
         self.assertTrue(type(joke) is StoryJoke)
 
     def test_ShouldReturnTrueWhenGivenPositiveResponse(self):
         self.assertTrue(self.jokeModule._shouldTellAnotherJoke([]))
 
+    def test_ShouldGetKnockKnockJokeType(self):
+        self.assertEqual(self.jokeModule._getJokeTypeFromUserInput(['knock', 'knock', 'joke']), JokeType.knock_knock)
+
+    def test_ShouldGetRandomJokeType(self):
+        self.assertEqual(self.jokeModule._getJokeTypeFromUserInput([]), JokeType.random)
 
 class IOEngineFake(IOEngine):
     def __init__(self):

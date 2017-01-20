@@ -4,6 +4,7 @@ from .DefaultModule import DefaultModule
 from .ModuleInterface import IModule
 from .ExitModule import ExitModule
 from .JokeModule import JokeModule
+from .WeatherModule import WeatherModule
 
 
 class ModuleList:
