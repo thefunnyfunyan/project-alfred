@@ -1,2 +1,2 @@
 class IOutputEngine(object):
-  def output(outputString: str): raise NotImplementedError
+    def output(self, output_string: str): raise NotImplementedError
